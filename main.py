@@ -1,8 +1,19 @@
 import PySimpleGUI as sg
 from docx import Document
+import sys
 import os
 import platform
 import subprocess
+
+def resource_path(relative_path):
+    """
+    PyInstaller実行時には、_MEIPASSディレクトリからファイルを参照するためのヘルパー関数。
+    """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def insert_image_to_template(image_path, template_path, output_path):
     doc = Document(template_path)
@@ -48,17 +59,18 @@ def main():
                 continue
             
             try:
-                template_path = "card_template.docx"
+                template_path = resource_path("card_template.docx")
+                os.makedirs("card_docx", exist_ok=True)
                 output_path = f"card_docx/{name}.docx"
                 insert_image_to_template(image_path, template_path, output_path)
                 sg.popup("名刺用紙が生成されました", f"出力ファイル：{output_path}")
                 window["-name-"].update("")
                 window["-FILE-"].update("")
-                
             except Exception as e:
                 sg.popup("エラーが発生しました", str(e))
         elif event == "フォルダを表示":
             folder_path = "card_docx"
+            os.makedirs("card_docx", exist_ok=True)
             open_folder(folder_path)
     
     window.close()
