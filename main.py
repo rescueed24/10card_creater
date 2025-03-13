@@ -61,7 +61,7 @@ def main():
             try:
                 template_path = resource_path("card_template.docx")
                 os.makedirs("card_docx", exist_ok=True)
-                output_path = f"card_docx/{name}.docx"
+                output_path = f"card_docx/{name}-名刺.docx"
                 insert_image_to_template(image_path, template_path, output_path)
                 sg.popup("名刺用紙が生成されました", f"出力ファイル：{output_path}")
                 window["-name-"].update("")
