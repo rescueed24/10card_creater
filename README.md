@@ -1,6 +1,6 @@
 # 10card_creater
 ## ソフト利用前に
-この名刺作成ソフトは**docx及びPySimpleGUI**の外部ライブラリを使用しております。pip installにてこのライブラリ群をインストールしてください。また、PySimpleGUIは商用目的以外でのみ無償利用が可能となっております。ソフトを利用するためにサインインが必要ですのでサインインをお忘れなく行ってください。
+この名刺作成ソフトは**python-docx及びPySimpleGUI**の外部ライブラリを使用しております。pip installにてこのライブラリ群をインストールしてください。また、PySimpleGUIは商用目的以外でのみ無償利用が可能となっております。ソフトを利用するためにサインインが必要ですのでサインインをお忘れなく行ってください。
 ### PySimpleGUI
 [PySimpleGUIのサインインURLはこちらです](https://pysimplegui.com/pricing)
 ## 注意
